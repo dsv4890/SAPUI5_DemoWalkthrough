@@ -1,10 +1,12 @@
-<mvc:View controllerName="com.synconic.practics.SAPUI5_Walkthrough.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+<mvc:View  xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<App id="idAppControl">
-		<pages>
-			<Page title="{i18n>title}">
-				<content></content>
-			</Page>
-		</pages>
-	</App>
+	 <Text text="Hello World"/>
+	<!--<App id="idAppControl">-->
+	<!--	<pages>-->
+	<!--		<Page title="{i18n>title}">-->
+	<!--			<content></content>-->
+	<!--		</Page>-->
+	<!--	</pages>-->
+	<!--controllerName="com.synconic.practics.SAPUI5_Walkthrough.controller.App"-->
+	<!--</App>-->
 </mvc:View>
