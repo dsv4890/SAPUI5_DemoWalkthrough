@@ -1,14 +1,22 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/synconic/practics/SAPUI5_Walkthrough/model/models"
-], function(UIComponent, Device, models) {
+	"com/synconic/practics/SAPUI5_Walkthrough/model/models",
+   "sap/ui/model/json/JSONModel",
+   "sap/ui/model/resource/ResourceModel"
+], function(UIComponent, Device, models, JSONModel, ResourceModel) {
 	"use strict";
 
 	return UIComponent.extend("com.synconic.practics.SAPUI5_Walkthrough.Component", {
 
 		metadata: {
-			manifest: "json"
+			manifest: "json",
+			rootView: {
+				"viewName": "com.synconic.practics.SAPUI5_Walkthrough.view.App",
+				"type": "XML",
+				"async": true,
+				"id": "app"
+			}
 		},
 
 		/**
@@ -19,7 +27,20 @@ sap.ui.define([
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-
+			
+			// set data model
+	         var oData = {
+	            recipient : {
+	               name : "World"
+	            }
+	         };
+	         var oModel = new JSONModel(oData);
+	         this.setModel(oModel);
+	         // set i18n model
+	         var i18nModel = new ResourceModel({
+	            bundleName : "com.synconic.practics.SAPUI5_Walkthrough.i18n.i18n"
+	         });
+	         this.setModel(i18nModel, "i18n");
 			// enable routing
 			this.getRouter().initialize();
 
