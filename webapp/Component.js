@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
 	"com/synconic/practics/SAPUI5_Walkthrough/model/models",
-	"sap/ui/model/json/JSONModel"
-], function(UIComponent, Device, models,JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"com/synconic/practics/SAPUI5_Walkthrough/controller/HelloDialog"
+], function(UIComponent, Device, models,JSONModel, HelloDialog) {
 	"use strict";
 
 	return UIComponent.extend("com.synconic.practics.SAPUI5_Walkthrough.Component", {
@@ -29,6 +30,20 @@ sap.ui.define([
 			};
 			var oModel = new JSONModel(oData);
 			this.setModel(oModel);
+
+			// set dialog
+			this._helloDialog = new HelloDialog(this.getRootControl());
+		},
+
+
+		exit : function() {
+			this._helloDialog.destroy();
+			delete this._helloDialog;
+		},
+
+		openHelloDialog : function () {
+			this._helloDialog.open();
 		}
+
 	});
 });

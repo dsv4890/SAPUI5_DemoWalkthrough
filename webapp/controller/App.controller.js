@@ -3,5 +3,9 @@ sap.ui.define([
 ], function (Controller) {
    "use strict";
    return Controller.extend("com.synconic.practics.SAPUI5_Walkthrough.controller.App", {
+	   	
+		onOpenDialog : function () {
+			this.getOwnerComponent().openHelloDialog();
+		}
    });
 });
