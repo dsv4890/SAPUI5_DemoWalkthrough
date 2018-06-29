@@ -20,13 +20,15 @@ sap.ui.define([
          // create dialog lazily
          if (!oDialog) {
             // create dialog via fragment factory
-            oDialog = sap.ui.xmlfragment(oView.getId(), "com.synconic.practics.SAPUI5_Walkthrough.view.HelloDialog");
+            oDialog = sap.ui.xmlfragment(oView.getId(), "com.synconic.practics.SAPUI5_Walkthrough.view.HelloDialog", this);
             oView.addDependent(oDialog);
         	}
-
-
          oDialog.open();
-    	}
+    	},
+ 
+		onCloseDialog : function () {
+			this.getView().byId("helloDialog").close();
+		}
 	});
 
 });
