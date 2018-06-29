@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/synconic/practics/SAPUI5_Walkthrough/model/models"
-], function(UIComponent, Device, models) {
+	"com/synconic/practics/SAPUI5_Walkthrough/model/models",
+	"sap/ui/model/json/JSONModel"
+], function(UIComponent, Device, models,JSONModel) {
 	"use strict";
 
 	return UIComponent.extend("com.synconic.practics.SAPUI5_Walkthrough.Component", {
@@ -16,15 +17,18 @@ sap.ui.define([
 		 * @public
 		 * @override
 		 */
-		init: function() {
-			// call the base component's init function
+		init : function () {
+			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// enable routing
-			this.getRouter().initialize();
-
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
+			// set data model
+			var oData = {
+				recipient : {
+					name : "World"
+				}
+			};
+			var oModel = new JSONModel(oData);
+			this.setModel(oModel);
 		}
 	});
 });
