@@ -9,6 +9,7 @@
 				</headerContent>
                <content>
                   <mvc:XMLView viewName="com.synconic.practics.SAPUI5_Walkthrough.view.HelloPanel"/>
+                   <mvc:XMLView viewName="com.synconic.practics.SAPUI5_Walkthrough.view.InvoiceList"/>
                </content>
             </Page>
         </pages>
