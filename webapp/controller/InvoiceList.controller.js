@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"com/synconic/practics/SAPUI5_Walkthrough/model/formatter"
+], function(Controller, JSONModel, formatter) {
 	"use strict";
 
 	return Controller.extend("com.synconic.practics.SAPUI5_Walkthrough.controller.InvoiceList", {
@@ -11,6 +12,7 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf com.synconic.practics.SAPUI5_Walkthrough.view.InvoiceList
 		 */
+		    formatter: formatter,
 			onInit: function() {
 				var oViewModel = new JSONModel({
 					currency: "EUR"
